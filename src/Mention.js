@@ -1,11 +1,10 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
 
 import utils from './utils';
 
-function Mention({ display, className }) {
+function Mention({ display }) {
   return (
-    <strong className={classNames(className, 'mention')}>
+    <strong className="mentions-input__mention">
       { display }
     </strong>
   );
