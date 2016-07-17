@@ -384,6 +384,16 @@ module.exports = {
         descriptor: descriptor
       }))
     ], [])[index];
+  },
+
+  getValues: function(object) {
+    const values = [];
+    for (var property in object) {
+      if (object.hasOwnProperty(property)) {
+        values.push(object[property]);
+      }
+    }
+    return values;
   }
 
 }

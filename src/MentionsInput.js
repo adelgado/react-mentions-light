@@ -4,7 +4,6 @@ import LinkedValueUtils from 'react/lib/LinkedValueUtils';
 import classNames from 'classnames';
 
 import keys from 'lodash/keys';
-import values from 'lodash/values';
 import omit from 'lodash/omit';
 
 import utils from './utils';
@@ -335,7 +334,7 @@ const MentionsInput = React.createClass({
       return;
     }
 
-    if(values(KEY).indexOf(ev.keyCode) >= 0) {
+    if(utils.getValues(KEY).indexOf(ev.keyCode) >= 0) {
       ev.preventDefault();
     }
 
