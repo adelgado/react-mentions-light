@@ -1,0 +1,111 @@
+.mentions-input {
+	position: relative;
+	overflow-y: visible;
+}
+
+.mentions-input__mention {
+	font-weight: inherit;
+	background-color: rgb(206, 228, 229);
+}
+
+.mentions-input__control {
+	background-color: #fff;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.mentions-input__control--singleline {
+	display: inline-block;
+	width: 130px;
+}
+
+.mentions-input__control--multiline {
+	font-family: monospace;
+	border: 1px solid silver;
+}
+
+.mentions-input__highlighter {
+	display: block;
+	top: 0;
+	background-color: transparent;
+	position: relative;
+	width: inherit;
+	color: transparent;
+	overflow: hidden;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	margin: 0;
+}
+
+.mentions-input__highlighter--singleline {
+	white-space: pre;
+	word-wrap: initial;
+	box-sizing: border-box;
+	padding: 1px;
+	border: 2px inset transparent;
+	white-space: pre;
+}
+
+.mentions-input__highlighter--multiline {
+	box-sizing: border-box;
+	height: 100%;
+	bottom: 0;
+	resize: none;
+	padding: 9px;
+	min-height: 63px;
+	outline: 0;
+	border: 0;
+}
+
+.mentions-input__input {
+	display: block;
+	position: absolute;
+	top: 0;
+	box-sizing: border-box;
+	background-color: transparent;
+	margin: 0;
+}
+
+.mentions-input__input--multiline {
+	width: 100%;
+	height: 100%;
+	bottom: 0;
+	overflow: hidden;
+	resize: none;
+	padding: 9px;
+	min-height: 63px;
+	outline: 0;
+	border: 0;
+}
+
+.mentions-input__input--singleline {
+	width: inherit;
+	padding: 1px;
+	border: 2px inset;
+}
+
+.mentions-input__suggestions-overlay {
+	position: absolute;
+	z-index: 1;
+	margin-top: 14px;
+	min-width: 100px;
+	border: 1px solid rgba(0, 0, 0, 0.14902);
+	font-size: 10px;
+	background-color: white;
+}
+
+.mentions-input__suggestions-list {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.mentions-input__suggestion {
+	cursor: pointer;
+	padding: 5px 15px;
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.mentions-input__suggestion--focused {
+	background-color: rgb(206, 228, 229);
+}
