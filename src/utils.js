@@ -12,6 +12,7 @@ var escapeMap = {
   "'": '&#x27;',
   '`': '&#x60;'
 };
+
 var createEscaper = function(map) {
   var escaper = function(match) {
     return map[match];
@@ -241,7 +242,7 @@ module.exports = {
     var mentionStart = this.findStartOfMentionInPlainText(value, markup, indexInPlainText, displayTransform);
     return mentionStart !== undefined && mentionStart !== indexInPlainText
   },
-  
+
   // Applies a change from the plain text textarea to the underlying marked up value
   // guided by the textarea text selection ranges before and after the change
   applyChangeToValue: function(value, markup, plainTextValue, selectionStartBeforeChange, selectionEndBeforeChange, selectionEndAfterChange, displayTransform) {
@@ -308,7 +309,7 @@ module.exports = {
         newValue = this.spliceString(value, mappedSpliceStart, mappedSpliceEnd, insert);
       }
     }
-    
+
     return newValue;
   },
 
