@@ -394,6 +394,28 @@ module.exports = {
       }
     }
     return values;
+  },
+
+  getKeys: function(object) {
+    const values = [];
+    for (var property in object) {
+      if (object.hasOwnProperty(property)) {
+        values.push(property);
+      }
+    }
+    return values;
+  },
+
+  omitKeys: function(object, keysToOmit) {
+    const omittedObject = {};
+    for (var property in object) {
+      if (object.hasOwnProperty(property)) {
+        if (keysToOmit.indexOf(property) === -1) {
+          omittedObject[property] = object[property];
+        }
+      }
+    }
+    return omittedObject;
   }
 
 }

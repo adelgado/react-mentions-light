@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom';
 import LinkedValueUtils from 'react/lib/LinkedValueUtils';
 import classNames from 'classnames';
 
-import keys from 'lodash/keys';
-import omit from 'lodash/omit';
-
 import utils from './utils';
 import SuggestionsOverlay from './SuggestionsOverlay';
 import Highlighter from './Highlighter';
@@ -123,7 +120,7 @@ const MentionsInput = React.createClass({
     let { readOnly, disabled } = this.props;
 
     // pass all props that we don't use through to the input control
-    let props = omit(this.props, keys(MentionsInput.propTypes));
+    let props = utils.omitKeys(this.props, utils.getKeys(MentionsInput.propTypes));
 
     return {
       ...props,
