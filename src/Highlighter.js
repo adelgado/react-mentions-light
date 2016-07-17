@@ -1,8 +1,6 @@
 import React, { Component, PropTypes, Children } from 'react';
 import classNames from 'classnames';
 
-import isEqual from "lodash/isEqual";
-
 import utils from './utils';
 import Mention from './Mention';
 
@@ -62,7 +60,7 @@ class Highlighter extends Component {
 
     let { lastPosition } = this.state;
 
-    if(isEqual(lastPosition, position)) {
+    if(utils.isSamePosition(lastPosition, position)) {
       return;
     }
 

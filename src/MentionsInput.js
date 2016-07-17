@@ -6,7 +6,6 @@ import classNames from 'classnames';
 import keys from 'lodash/keys';
 import values from 'lodash/values';
 import omit from 'lodash/omit';
-import isEqual from 'lodash/isEqual';
 
 import utils from './utils';
 import SuggestionsOverlay from './SuggestionsOverlay';
@@ -436,7 +435,7 @@ const MentionsInput = React.createClass({
 
     position.top = caretPosition.top - highlighter.scrollTop;
 
-    if(isEqual(position, this.state.suggestionsPosition)) {
+    if(utils.isSamePosition(position, this.state.suggestionsPosition)) {
       return;
     }
 

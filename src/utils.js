@@ -76,6 +76,24 @@ module.exports = {
     return Object.prototype.toString.call(obj) === "[object Number]";
   },
 
+  isSamePosition: function(position, otherPosition) {
+    if (position === otherPosition === null) {
+      return true;
+    } else if (position === null || otherPosition === null) {
+      return false;
+    } else {
+      if (position.left !== otherPosition.left) {
+        return false;
+      } else if (position.top !== otherPosition.top) {
+        return false;
+      } else if (position.right !== otherPosition.right) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  },
+
   /**
    * parameterName: "id", "display", or "type"
    */
