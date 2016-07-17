@@ -3,11 +3,6 @@ import ReactDOM from 'react-dom';
 import LinkedValueUtils from 'react/lib/LinkedValueUtils';
 import classNames from 'classnames';
 
-import keys from 'lodash/keys';
-import values from 'lodash/values';
-import omit from 'lodash/omit';
-import isEqual from 'lodash/isEqual';
-
 import utils from './utils';
 import SuggestionsOverlay from './SuggestionsOverlay';
 import Highlighter from './Highlighter';
@@ -125,7 +120,7 @@ const MentionsInput = React.createClass({
     let { readOnly, disabled } = this.props;
 
     // pass all props that we don't use through to the input control
-    let props = omit(this.props, keys(MentionsInput.propTypes));
+    let props = utils.omitKeys(this.props, utils.getKeys(MentionsInput.propTypes));
 
     return {
       ...props,
@@ -336,7 +331,7 @@ const MentionsInput = React.createClass({
       return;
     }
 
-    if(values(KEY).indexOf(ev.keyCode) >= 0) {
+    if(utils.getValues(KEY).indexOf(ev.keyCode) >= 0) {
       ev.preventDefault();
     }
 
@@ -436,7 +431,7 @@ const MentionsInput = React.createClass({
 
     position.top = caretPosition.top - highlighter.scrollTop;
 
-    if(isEqual(position, this.state.suggestionsPosition)) {
+    if(utils.isSamePosition(position, this.state.suggestionsPosition)) {
       return;
     }
 

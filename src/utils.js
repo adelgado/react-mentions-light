@@ -12,6 +12,7 @@ var escapeMap = {
   "'": '&#x27;',
   '`': '&#x60;'
 };
+
 var createEscaper = function(map) {
   var escaper = function(match) {
     return map[match];
@@ -74,6 +75,24 @@ module.exports = {
 
   isNumber: function(obj) {
     return Object.prototype.toString.call(obj) === "[object Number]";
+  },
+
+  isSamePosition: function(position, otherPosition) {
+    if (position === otherPosition === null) {
+      return true;
+    } else if (position === null || otherPosition === null) {
+      return false;
+    } else {
+      if (position.left !== otherPosition.left) {
+        return false;
+      } else if (position.top !== otherPosition.top) {
+        return false;
+      } else if (position.right !== otherPosition.right) {
+        return false;
+      } else {
+        return true;
+      }
+    }
   },
 
   /**
@@ -223,7 +242,7 @@ module.exports = {
     var mentionStart = this.findStartOfMentionInPlainText(value, markup, indexInPlainText, displayTransform);
     return mentionStart !== undefined && mentionStart !== indexInPlainText
   },
-  
+
   // Applies a change from the plain text textarea to the underlying marked up value
   // guided by the textarea text selection ranges before and after the change
   applyChangeToValue: function(value, markup, plainTextValue, selectionStartBeforeChange, selectionEndBeforeChange, selectionEndAfterChange, displayTransform) {
@@ -290,7 +309,7 @@ module.exports = {
         newValue = this.spliceString(value, mappedSpliceStart, mappedSpliceEnd, insert);
       }
     }
-    
+
     return newValue;
   },
 
@@ -366,6 +385,38 @@ module.exports = {
         descriptor: descriptor
       }))
     ], [])[index];
+  },
+
+  getValues: function(object) {
+    const values = [];
+    for (var property in object) {
+      if (object.hasOwnProperty(property)) {
+        values.push(object[property]);
+      }
+    }
+    return values;
+  },
+
+  getKeys: function(object) {
+    const values = [];
+    for (var property in object) {
+      if (object.hasOwnProperty(property)) {
+        values.push(property);
+      }
+    }
+    return values;
+  },
+
+  omitKeys: function(object, keysToOmit) {
+    const omittedObject = {};
+    for (var property in object) {
+      if (object.hasOwnProperty(property)) {
+        if (keysToOmit.indexOf(property) === -1) {
+          omittedObject[property] = object[property];
+        }
+      }
+    }
+    return omittedObject;
   }
 
 }
