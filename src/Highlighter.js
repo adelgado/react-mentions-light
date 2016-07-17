@@ -193,8 +193,6 @@ class Highlighter extends Component {
 
   // Renders an component to be inserted in the highlighter at the current caret position
   renderHighlighterCaret(children) {
-    console.log(this.props)
-
     return (
       <span className="mentions-input__caret" ref="caret" key="caret">
         { children }
