@@ -32,8 +32,7 @@ Mention.propTypes = {
     PropTypes.instanceOf(RegExp)
   ]),
 
-  isLoading: PropTypes.bool,
-  className: PropTypes.string
+  isLoading: PropTypes.bool
 };
 
 Mention.defaultProps = {
