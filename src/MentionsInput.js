@@ -55,6 +55,7 @@ const MentionsInput = React.createClass({
 
     markup: PropTypes.string,
     value: PropTypes.string,
+    className: PropTypes.string,
 
     valueLink: PropTypes.shape({
       value: PropTypes.string,
