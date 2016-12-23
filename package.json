@@ -1,6 +1,6 @@
 {
   "name": "react-mentions-light",
-  "version": "0.5.4",
+  "version": "0.6.0",
   "description": "React mentions input made a bit more lightweight",
   "main": "lib/index.js",
   "scripts": {
