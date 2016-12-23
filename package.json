@@ -1,7 +1,7 @@
 {
   "name": "react-mentions-light",
   "version": "0.5.4",
-  "description": "React mentions input",
+  "description": "React mentions input made a bit more lightweight",
   "main": "lib/index.js",
   "scripts": {
     "test": "npm run env NODE_ENV=test && mocha",
